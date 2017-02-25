@@ -7,7 +7,7 @@ angular.module('video-player')
     controllerAs: 'ctrl',
     bindToController: true,
     controller: function($scope) {
-      console.log('video list', $scope);
+      //console.log('video list', $scope);
     },
     // template: '<ul><li ng-repeat="video in ctrl.videos"></li></ul>'
     templateUrl: 'src/templates/videoList.html'

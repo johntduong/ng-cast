@@ -23,7 +23,9 @@ describe('video list entry', function() {
   }));
 
   it('should correctly set video property on the scope', function() {
+    debugger;
     expect(catElement.isolateScope().ctrl.video.snippet.title).to.equal(fakeVideoData[0].snippet.title);
+    
     expect(jsElement.isolateScope().ctrl.video.snippet.title).to.equal(moreFakeVideoData[0].snippet.title);
     
     expect(catElement.isolateScope().ctrl.video.snippet.description).to.equal(fakeVideoData[0].snippet.description);
