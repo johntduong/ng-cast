@@ -5,6 +5,7 @@ angular.module('video-player')
 }])
 .directive('app', function() {
   return {
-    template: '<div class="mycontroller" ng-controller="myController"><video-list videos="videoList"></div>'
+    // template: '<div class="mycontroller" ng-controller="myController"><video-list videos="videoList"></div>'
+    templateUrl: 'src/templates/app.html'
   };
 });
