@@ -3,19 +3,17 @@ angular.module('video-player')
 .directive('search', function() {
   return {
     scope: {
-      searchYoutube: '<'
+      result: '<'
     },
     controllerAs: 'ctrl',
     bindToController: true,
-    controller: function($scope) {
-      console.log('search scope', $scope);
+    controller: function($scope, youTube) {
+      console.log('youtube', youTube);
       $scope.ctrl.searchInput = '';
-      $scope.ctrl.result = function() {
-        
-      };
-      $scope.ctrl.submitSearch = function(query) {
-        $scope.ctrl.searchYoutube(query);
-        $scope.ctrl.searchInput = '';
+      $scope.ctrl.handleClick = function() {
+        youTube.search($scope.ctrl.searchInput, function(data) {
+          $scope.ctrl.result(data);
+        });
       };
     },
     // TODO

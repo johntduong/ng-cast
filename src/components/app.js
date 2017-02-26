@@ -21,9 +21,13 @@ angular.module('video-player')
           $scope.ctrl.currentVideo = data[0];
         });
       };
-      // youTube.search('test', function() {
 
-      // });
+      $scope.ctrl.searchResults2 = function(data) {
+        $scope.ctrl.videos = data;
+        $scope.ctrl.currentVideo = data[0];
+      };
+      
+      youTube.search('south park', $scope.ctrl.searchResults2);
     },
     templateUrl: 'src/templates/app.html'
   };
