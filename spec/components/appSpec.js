@@ -63,6 +63,7 @@ describe('app', function() {
   });
 
   it('should load live data when the app is initialized', function() {
+    console.log('app spec test', element.isolateScope());
     expect(element.isolateScope().ctrl.videos).to.equal(fakeVideoData);
     expect(element.isolateScope().ctrl.currentVideo).to.equal(fakeVideoData[0]);
   });

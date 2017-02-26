@@ -1,18 +1,30 @@
 angular.module('video-player')
-.controller('myController', ['$scope', '$window', function($scope, $window) {
-  //console.log('app scope: ', $scope);
-  $scope.videoList = $window.exampleVideoData;
-
-  $scope.onClick = function() {
-    
-  };
-
-}])
 .directive('app', function() {
   return {
-    // controllerAs: 'ctrl',
-    // bindToController: true,
-    // template: '<div class="mycontroller" ng-controller="myController"><video-list videos="videoList"></div>'
+    scope: {
+    },
+    controllerAs: 'ctrl',
+    bindToController: true,
+    controller: function($scope, $window, youTube) {
+      
+      $scope.ctrl.selectVideo = function(selectedVideo) {
+        $scope.ctrl.currentVideo = selectedVideo;
+      };
+      
+      $scope.ctrl.videos = $window.exampleVideoData;
+ 
+      $scope.ctrl.currentVideo = $window.exampleVideoData[0];
+
+      $scope.ctrl.searchResults = function(query) {
+        youTube.search(query, function(data) {
+          $scope.ctrl.videos = data;
+          $scope.ctrl.currentVideo = data[0];
+        });
+      };
+      // youTube.search('test', function() {
+
+      // });
+    },
     templateUrl: 'src/templates/app.html'
   };
 });
